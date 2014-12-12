@@ -1,0 +1,6 @@
+BildId	Omrade	Strak	Bildnr	X-koordinat	Y-koordinat	Hojd	Bildoverl	Strakoverl	Kamera	K-konst	Tidpunkt	GSD	SolHojd	SolAzimut
+65_Dc_164_61		0	0			0						0.0		
+65_Dc_164_62		0	0			0						0.0		
+65_Dd_164_61		0	0			0						0.0		
+65_Dd_197_01		0	0			0						0.0		
+65_Dd_197_02		0	0			0						0.0		
