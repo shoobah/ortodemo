@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<TileMap version="1.0.0" tilemapservice="http://tms.osgeo.org/1.0.0">
+	  <Title>are_fjall.vrt</Title>
+	  <Abstract></Abstract>
+	  <SRS>PROJCS["RT90 2.5 gon W (deprecated)",
+    GEOGCS["RT90",
+        DATUM["Rikets_koordinatsystem_1990",
+            SPHEROID["Bessel 1841",6377397.155,299.1528128,
+                AUTHORITY["EPSG","7004"]],
+            AUTHORITY["EPSG","6124"]],
+        PRIMEM["Greenwich",0,
+            AUTHORITY["EPSG","8901"]],
+        UNIT["degree",0.01745329251994328,
+            AUTHORITY["EPSG","9122"]],
+        AUTHORITY["EPSG","4124"]],
+    UNIT["metre",1,
+        AUTHORITY["EPSG","9001"]],
+    PROJECTION["Transverse_Mercator"],
+    PARAMETER["latitude_of_origin",0],
+    PARAMETER["central_meridian",15.80827777777778],
+    PARAMETER["scale_factor",1],
+    PARAMETER["false_easting",1500000],
+    PARAMETER["false_northing",0],
+    AUTHORITY["EPSG","2400"],
+    AXIS["Y",EAST],
+    AXIS["X",NORTH]]</SRS>
+	  <BoundingBox minx="7025000.00000000000000" miny="1350000.00000000000000" maxx="7045000.00000000000000" maxy="1370000.00000000000000"/>
+	  <Origin x="7025000.00000000000000" y="1350000.00000000000000"/>
+	  <TileFormat width="256" height="256" mime-type="image/png" extension="png"/>
+	  <TileSets profile="raster">
+	    <TileSet href="0" units-per-pixel="128.00000000000000" order="0"/>
+	    <TileSet href="1" units-per-pixel="64.00000000000000" order="1"/>
+	    <TileSet href="2" units-per-pixel="32.00000000000000" order="2"/>
+	    <TileSet href="3" units-per-pixel="16.00000000000000" order="3"/>
+	    <TileSet href="4" units-per-pixel="8.00000000000000" order="4"/>
+	    <TileSet href="5" units-per-pixel="4.00000000000000" order="5"/>
+	    <TileSet href="6" units-per-pixel="2.00000000000000" order="6"/>
+	    <TileSet href="7" units-per-pixel="1.00000000000000" order="7"/>
+	    <TileSet href="8" units-per-pixel="0.50000000000000" order="8"/>
+	  </TileSets>
+	</TileMap>
+	

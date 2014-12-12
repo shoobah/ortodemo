@@ -60,7 +60,7 @@
                 }
             }
         });
-        map.addControl(cacheWrite);
+        cacheRead = new OpenLayers.Control.CacheRead();
         cacheWrite2 = new OpenLayers.Control.CacheWrite({
             autoActivate: true,
             imageFormat: "image/jpeg",
@@ -70,7 +70,8 @@
                 }
             }
         });
-        map2.addControl(cacheWrite2);
+        cacheRead2 = new OpenLayers.Control.CacheRead();
+
 
 
         var layer1 = new OpenLayers.Layer.TMS("Gamla flygbilder", "", {
@@ -101,12 +102,18 @@
         });
 
 
+
         var layer1clone = layer1.clone();
+
+        map.addControl(cacheWrite);
+        map.addControl(cacheRead);
         map.addLayers([layer2, layer1clone, layer3]);
         map.zoomToExtent(mapBounds, true);
 
         var layer2clone = layer2.clone();
         var layer3clone = layer3.clone();
+        map2.addControl(cacheWrite2);
+        map2.addControl(cacheRead2);
         map2.addLayers([layer1, layer2clone, layer3clone]);
         map2.zoomToExtent(mapBounds2, true);
 
