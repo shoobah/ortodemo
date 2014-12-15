@@ -2,6 +2,9 @@
 closure-library/
 backup/
 ol/
-salen/
-are/
+salen/salen_*/
+salen/tkarta/
+are/2013/
+are/1965/
+are/fkarta/
 OpenLayers*/

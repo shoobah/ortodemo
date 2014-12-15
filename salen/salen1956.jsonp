@@ -1,0 +1,10 @@
+﻿var grid=({
+  "version":"2.1.0",
+  "name":"sälen 1956",
+  "bounds":[385000.0, 6775000.0, 410000.0, 6790000.0],
+  "center":[0,0,4],
+  "tiles":["salen_1956/{z}/{x}/{y}.jpg"],
+  "scheme":"xyz",
+  "minzoom":0,
+  "maxzoom":7
+});
