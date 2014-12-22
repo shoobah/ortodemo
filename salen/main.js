@@ -55,32 +55,14 @@ $(function () {
                     "move": myFunction2
                 }
             },
-            cacheWrite = new OpenLayers.Control.CacheWrite({
-                autoActivate: true,
-                imageFormat: 'image/jpeg',
-                eventListeners: {
-                    cachefull: function () {
-                        status.innerHTML = 'Cache full.';
-                    }
-                }
-            }),
-            cacheRead = new OpenLayers.Control.CacheRead(),
-            cacheWrite2 = new OpenLayers.Control.CacheWrite({
-                autoActivate: true,
-                imageFormat: 'image/jpeg',
-                eventListeners: {
-                    cachefull: function () {
-                        status.innerHTML = 'Cache full.';
-                    }
-                }
-            }),
-            cacheRead2 = new OpenLayers.Control.CacheRead(),
-
             overlayGetTile1URL = function (bounds) {
                 var res = this.map.getResolution(),
                     x = Math.round((bounds.left - this.maxExtent.left) / (res * this.tileSize.w)),
                     y = Math.round((bounds.bottom - this.maxExtent.bottom) / (res * this.tileSize.h)),
                     z = this.map.getZoom();
+                    console.log('x:', x);
+                    console.log('y:', y);
+                    console.log('z:', z);
                 if (x >= 0 && y >= 0) {
                     return this.url + 'salen_1956/' + z + '/' + x + '/' + y + '.' + this.type;
                 } else {
