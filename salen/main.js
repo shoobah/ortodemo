@@ -139,14 +139,7 @@ $(function () {
             layer2Clone = layer2.clone(),
             layer3Clone = layer3.clone(),
             layerswitch1 = new OpenLayers.Control.LayerSwitcher(),
-            layerswitch2 = new OpenLayers.Control.LayerSwitcher(),
-            navigation = new OpenLayers.Control.Navigation({
-                autoActivate: true,
-                documentDrag: true
-            }),
-            panZoomBar = new OpenLayers.Control.PanZoomBar();
-
-
+            layerswitch2 = new OpenLayers.Control.LayerSwitcher();
 
         $(document).ready(function () {
             $('.lmSelect').select2({
@@ -169,11 +162,22 @@ $(function () {
         map2.addLayers([layer1, layer2Clone, layer3Clone]);
         map2.zoomToExtent(mapBounds2, true);
 
-        map.addControls([cacheWrite, cacheRead, layerswitch1, navigation]);
-        map2.addControls([cacheWrite2, cacheRead2, layerswitch2, navigation, panZoomBar]);
+        map.addControl(layerswitch1);
+        map.addControl(new OpenLayers.Control.Navigation({
+            autoActivate: true,
+            documentDrag: true
+        }));
         layerswitch1.baseLbl.innerHTML = 'Alternativa vyer';
+
+        map2.addControl(layerswitch2);
+        map2.addControl(new OpenLayers.Control.Navigation({
+            autoActivate: true,
+            documentDrag: true
+        }));
         layerswitch2.baseLbl.innerHTML = 'Alternativa vyer';
         layerswitch2.showControls(false);
+
+        map2.addControl(new OpenLayers.Control.PanZoomBar());
 
         isok = true;
         map.setCenter(new OpenLayers.LonLat(402300, 6783000), 5, false, true);
