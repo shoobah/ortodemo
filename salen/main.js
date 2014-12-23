@@ -60,9 +60,6 @@ $(function () {
                     x = Math.round((bounds.left - this.maxExtent.left) / (res * this.tileSize.w)),
                     y = Math.round((bounds.bottom - this.maxExtent.bottom) / (res * this.tileSize.h)),
                     z = this.map.getZoom();
-                    console.log('x:', x);
-                    console.log('y:', y);
-                    console.log('z:', z);
                 if (x >= 0 && y >= 0) {
                     return this.url + 'salen_1956/' + z + '/' + x + '/' + y + '.' + this.type;
                 } else {
@@ -74,8 +71,14 @@ $(function () {
                     x = Math.round((bounds.left - this.maxExtent.left) / (res * this.tileSize.w)),
                     y = Math.round((bounds.bottom - this.maxExtent.bottom) / (res * this.tileSize.h)),
                     z = this.map.getZoom();
+                    console.log('bounds.left',bounds.left);
+                    console.log('this.maxExtent.left',this.maxExtent.left);
+                    console.log('res',res);
+                    console.log('this.tileSize.w',this.tileSize.w);
                 if (x >= 0 && y >= 0) {
-                    return this.url + 'salen_2011/' + z + '/' + x + '/' + y + '.' + this.type;
+                    var url = this.url + 'salen_2011/' + z + '/' + x + '/' + y + '.' + this.type;
+                    console.log('url', url);
+                    return url;
                 } else {
                     return 'none.png';
                 }

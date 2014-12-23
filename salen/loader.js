@@ -17,7 +17,7 @@
  */
 
 (function () {
-
+    "use strict";
     var i, pair;
 
     var href = window.location.href, start, end, paramsString, pairs,

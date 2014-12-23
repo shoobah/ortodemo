@@ -6,9 +6,45 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
     <title>Sälen 1956 - 2011</title>
+    <style>
+    .goog-slider-vertical,
+    .goog-slider-horizontal {
+        background-color: ThreeDFace;
+        position: relative;
+        overflow: hidden;
+    }
+    .goog-slider-thumb {
+        position: absolute;
+        background-color: ThreeDShadow;
+        overflow: hidden;
+    }
+    .goog-slider-vertical .goog-slider-thumb {
+        left: 0;
+        height: 20px;
+        width: 100%;
+    }
+    .goog-slider-horizontal .goog-slider-thumb {
+        top: 0;
+        width: 20px;
+        height: 100%;
+    }
+    .goog-slider-disabled {
+        background-color: lightgray
+    }
+    #s-h {
+        margin-bottom: 2em;
+    }
+    strong {
+        display: block;
+        margin-bottom: 3px;
+    }
+    </style>
 </head>
 
 <body>
+    <div id="s1" class="goog-slider" style="width: 200px; height: 20px">
+        <div class="goog-slider-thumb"></div>
+    </div>
     <div style="width:100%">
         <div id="map" class="map"></div>
     </div>
