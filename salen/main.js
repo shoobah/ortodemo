@@ -1,4 +1,5 @@
 $(function () {
+    "use strict";
     var map,
         map2,
         isok = false,
@@ -8,7 +9,6 @@ $(function () {
         mapBounds = new OpenLayers.Bounds(385000.0, 6775000.0, 410000.0, 6790000.0),
         mapBounds2 = new OpenLayers.Bounds(385000.0, 6775000.0, 410000.0, 6790000.0);
 
-    // avoid pink tiles
     OpenLayers.IMAGE_RELOAD_ATTEMPTS = 3;
     OpenLayers.Util.onImageLoadErrorColor = 'transparent';
 
