@@ -33,7 +33,7 @@ $(function() {
                 }
         },
 
-        mapInfo=åre,
+        mapInfo=sälen,
         settings_list = [{
             name: mapInfo.title,
             extent: mapInfo.extent,

@@ -40,7 +40,7 @@
     var src, index, search, chunks, scriptParams = {};
     for (i = scripts.length - 1; i >= 0; --i) {
         src = scripts[i].getAttribute('src');
-        if (~(index = src.indexOf('loader.js?'))) {
+        if ((index = src.indexOf('loader.js?'))) {
             search = src.substr(index + 10);
             chunks = search ? search.split('&') : [];
             for (i = chunks.length - 1; i >= 0; --i) {
