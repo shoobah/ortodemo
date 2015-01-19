@@ -1,3 +1,10 @@
+window.CLOSURE_NO_DEPS = true;
+goog.require('ol.Map');
+goog.require('ol.View');
+goog.require('ol.layer.Tile');
+goog.require('ol.source.TileJSON');
+goog.require('ol.source.XYZ');
+
 var maps = (function() {
     var showMap = function(mapInfo) {
         var pixelProj = new ol.proj.Projection({
@@ -7,17 +14,25 @@ var maps = (function() {
             }),
             layers = [];
 
-        for (var i = 0; i < mapInfo.layers.length; i += 1) {
+        for (var i = 0; i < 2; i += 1) {
             layers.push(
                 new ol.layer.Tile({
                     source: new ol.source.XYZ({
                         url: mapInfo.layers[i].url,
                         wrapX: false,
                         projection: pixelProj
-                    })
+                    }),
+                    preload: 6,
+                    title: mapInfo.layers[i].name
                 })
             );
         };
+        var debugLayer = new ol.layer.Tile({
+            source: new ol.source.TileDebug({
+                projection: pixelProj,
+                wrapX: false
+            })
+        });
         console.log('layers', layers);
         var view = new ol.View({
                 center: [mapInfo.extent[0] / 2, -mapInfo.extent[1] / 2],
@@ -27,24 +42,22 @@ var maps = (function() {
                 maxZoom: 8,
                 projection: pixelProj
             }),
-            layer_b = layers[2],
+            layer_b = layers[1],
 
             map = new ol.Map({
                 layers: layers,
                 target: 'map',
                 units: 'm',
                 view: view,
-                controls: ol.control.defaults({
-                    attributionOptions: /** @type {olx.control.AttributionOptions} */ ({
-                        collapsible: false
-                    })
-                })
+                renderer: 'canvas',
+                controls: [
+                    new ol.control.Zoom()
+                ]
             }),
             swipe = document.getElementById('swipe');
 
-        map.addControl(new ol.control.ZoomSlider());
-        // map.addControl(new ol.control.ZoomToExtent());
-        // map.addControl(new ol.control.ZoomSlider());
+        map.addControl(new ol.control.ZoomToExtent());
+        //map.addLayer(debugLayer);
 
         layer_b.on('precompose', function(event) {
             var context = event.context;
@@ -67,20 +80,34 @@ var maps = (function() {
     };
 
     var mapChanged = function(event) {
+        console.log('event.data.key', event.data.key);
+        event.preventDefault();
         $('#map').html('');
-        showMap(event.data.info[event.data.key]);
+        $("#selLayer1").html('');
+        $("#selLayer2").html('');
+        var theMapInfo = event.data.info[event.data.key];
+        showMap(theMapInfo);
+        _.forEach(theMapInfo.layers, function(layerInfo) {
+            $("#selLayer1").append($("<option/>").attr("value", layerInfo.name).html(layerInfo.name))
+        });
+        _.forEach(theMapInfo.layers, function(layerInfo) {
+            $("#selLayer2").append($("<option/>").attr("value", layerInfo.name).html(layerInfo.name))
+        });
+    };
+
+    var init = function(data) {
+        _.forOwn(data, function(num, key) {
+            var mapSelectItem = $("#selMap").append($("<option/>").attr("value", key).html(key));
+            mapSelectItem.on('change', {
+                info: data,
+                key: key
+            }, mapChanged);
+        });
     };
 
     return {
         show: showMap,
-        init: function(data) {
-            _.forOwn(data, function(num, key) {
-                $("#selMap").append($("<option/>").attr("value", key).html(key)).on('change', {
-                    info: data,
-                    key: key
-                }, mapChanged);
-            });
-        }
+        init: init
     }
 }());
 
@@ -93,4 +120,5 @@ $(function() {
         .fail(function(err) {
             console.log('FAIL!', err);
         })
+        // $('#map').change();
 });
