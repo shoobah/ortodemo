@@ -18,13 +18,13 @@
         "title": "Åre",
         "extent": [0, 0, 39936, 39936],
         "layers": [{
-            "url": "are/1965/{z}/{x}/{-y}.png",
+            "url": "are/1965jpg/{z}/{x}/{-y}.jpg",
             "name": "Åre 1965"
         }, {
-            "url": "are/2013/{z}/{x}/{-y}.png",
+            "url": "are/2013jpg/{z}/{x}/{-y}.jpg",
             "name": "Åre 2013"
         }, {
-            "url": "are/tkarta/{z}/{x}/{-y}.png",
+            "url": "are/fkarta-jpg/{z}/{x}/{-y}.jpg",
             "name": "Åre karta"
         }]
     }

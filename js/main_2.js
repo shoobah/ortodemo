@@ -34,12 +34,17 @@ var maps = (function() {
                 target: 'map',
                 units: 'm',
                 view: view,
-                controls: []
+                controls: ol.control.defaults({
+                    attributionOptions: /** @type {olx.control.AttributionOptions} */ ({
+                        collapsible: false
+                    })
+                })
             }),
             swipe = document.getElementById('swipe');
 
         map.addControl(new ol.control.ZoomSlider());
-        map.addControl(new ol.control.ZoomToExtent());
+        // map.addControl(new ol.control.ZoomToExtent());
+        // map.addControl(new ol.control.ZoomSlider());
 
         layer_b.on('precompose', function(event) {
             var context = event.context;
@@ -70,7 +75,10 @@ var maps = (function() {
         show: showMap,
         init: function(data) {
             _.forOwn(data, function(num, key) {
-                $("#selMap").append($("<option/>").attr("value", key).html(key)).on('change', {info:data, key:key}, mapChanged);
+                $("#selMap").append($("<option/>").attr("value", key).html(key)).on('change', {
+                    info: data,
+                    key: key
+                }, mapChanged);
             });
         }
     }
